@@ -2,6 +2,29 @@
 #define PHI 3.14 // konstanta
 using namespace std;
 
+// record
+typedef struct{
+	string hari;
+	string bulan;
+	string tahun;
+}tanggal;
+
+typedef struct{
+	int detik;
+	int menit;
+	int jam;
+}jam;
+
+typedef struct{
+	int noKA;
+	string kotaAsalKA;
+	tanggal tglBerangkat;
+	jam jamBerangkat;
+	string kotaTujuanKA;
+	tanggal tglTiba;
+	jam jamTiba;
+}jadwalKA;
+
 //prototype
 
 void baca();
@@ -21,6 +44,11 @@ float bagiProg8();
 void pilihProg8();
 void prosesProg8();
 void tampilProg8();
+void prog9();
+void prog10();
+
+
+
 	// variabel
 		int a, b, c, temp, pilih;
 		float g,h;
@@ -91,8 +119,15 @@ int main(){
 		cout << "=================================================================\n" << endl;
 		pilihProg8();
 		prosesProg8();
+		cout << endl << endl;
 		
+		//program9_array9.cpp
+		prog9();
+		cout << endl << endl;
 		
+		//program10_record1.cpp
+		prog10();
+		cout << endl << endl;
 		
 		return 0;
 	}
@@ -219,4 +254,62 @@ int main(){
 			cout << "Tidak Ada";
 		}
 		
+	}
+	
+	void prog9(){
+		int sum, i;
+		int TabInt[10];
+		
+		cout << "Isilah 10 data nilai dalam range 0 - 100 : " << endl;
+		for(i=0; i<10; i++){
+			cin >> TabInt[i];
+		}
+		
+		cout << "Data Input : " << endl;
+		
+		sum=0;
+		for(i=0; i<10; i++){
+			cout << TabInt[i] << endl;
+			sum += TabInt[i];
+		}
+		
+		cout << "Rata - Rata : " << (float)sum/10.0 << endl;
+	}
+	
+	void prog10(){
+		jadwalKA A;
+	
+		A.noKA = 1;
+		
+		//Asal
+		A.kotaAsalKA = "Bandung";
+		A.tglBerangkat.hari = "Rabu / 09";
+		A.tglBerangkat.bulan = "Desember";
+		A.tglBerangkat.tahun = "2017";
+		A.jamBerangkat.jam = 15;
+		A.jamBerangkat.menit = 46;
+		A.jamBerangkat.detik = 59;
+		
+		//tujuan
+		A.kotaTujuanKA = "Surabaya";
+		A.tglTiba.hari = "Kamis / 10";
+		A.tglTiba.bulan = "Desember";
+		A.tglTiba.tahun = "2017";
+		A.jamTiba.jam = 15;
+		A.jamTiba.menit = 46;
+		A.jamTiba.detik = 59;
+
+		
+		cout << "Nomor KA : " << A.noKA << endl;
+		cout << "	\nJadwal Pemberangkatan  " << endl;
+		cout << "=======================================" << endl;
+		cout << "Kota Asal : " << A.kotaAsalKA << endl;
+		cout << "Jam Pemberangkatan : " << A.jamBerangkat.jam << ":" << A.jamBerangkat.menit << ":" << A.jamBerangkat.detik<< endl;
+		cout << "Tanggal Pemberangkatan : " << A.tglBerangkat.hari << " - " << A.tglBerangkat.bulan << " - " << A.tglBerangkat.tahun << endl;
+		
+		cout << "	\nJadwal Tujuan  " << endl;
+		cout << "=======================================" << endl;
+		cout << "Kota Tujuan : " << A.kotaTujuanKA << endl;
+		cout << "Jam Pemberangkatan : " << A.jamTiba.jam << ":" << A.jamTiba.menit << ":" << A.jamTiba.detik<< endl;
+		cout << "Tanggal Pemberangkatan : " << A.tglTiba.hari << " - " << A.tglTiba.bulan << " - " << A.tglTiba.tahun << endl;
 	}
